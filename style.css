@@ -6,26 +6,24 @@
     font-family: 'Poppins', sans-serif;
 }
 
-@media screen and (min-wdith: 786px) {
-
-
-    body {
-        display: flex;
-        flex-direction: wrap;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background-color: red;
-    }
-}
-
-body {
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: #131313;
+}
+
+@media (min-width : 1060px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #131313;
+    }   
 }
 
 .Container .card {
