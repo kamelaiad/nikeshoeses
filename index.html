@@ -1,109 +1,218 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <title>Nike Shoeses</title>
-    </head>
-    <body>
-        <div class="container">
-        <div class="Container one">
-            <div class="card">
-                <div class="imgBx">
-                    <img src="https://dl.dropboxusercontent.com/s/w1lz1aik3e8lpoj/running_shoes_PNG5816.png?dl=0" alt="GreenNike">
-                </div>
-                <div class="contentBx">
-                    <h3>Nike Shoes</h3>
-                    <div class="size">
-                        <h4>Size :</h4>
-                        <div class="sizes">
-                        
-                            <label class="gr">37</label> 
-                            
-                            <label class="gr">38</label> 
-                            
-                            <label class="gr">39</label> 
-                            
-                            <label class="gr">40</label> 
-                            
-                            <label class="gr">41</label> 
-                            
-                            <label class="gr">42</label> 
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
 
-                        </div>
 
-                    </div>
-                    <div class="buyBox">
-                        <a href="#">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="Container two">
-            <div class="card">
-                <div class="imgBx">
-                    <img src="https://dl.dropboxusercontent.com/s/eyagy4g2szy904g/Orange.png?dl=0" alt="OrangeNike" >
-                </div>
-                <div class="contentBx">
-                    <h3>Nike Shoes</h3>
-                    <div class="size">
-                        <h4>Size :</h4>
-                        <div class="sizes">
-                        
-                            <label class="or">37</label> 
-                            
-                            <label class="or">38</label> 
-                            
-                            <label class="or">39</label> 
-                            
-                            <label class="or">40</label> 
-                            
-                            <label class="or">41</label> 
-                            
-                            <label class="or">42</label> 
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #131313;
+}
 
-                        </div>
+@media (min-width : 1060px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #131313;
+    }   
+}
 
-                    </div>
-                    <div class="buyBox">
-                        <a href="#">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="Container three">
-            <div class="card">
-                <div class="imgBx">
-                    <img src="https://dl.dropboxusercontent.com/s/9vftcebanjmt12y/Red.png?dl=0" alt="RedNike">
-                </div>
-                <div class="contentBx">
-                    <h3>Nike Shoes</h3>
-                    <div class="size">
-                        <h4>Size :</h4>
-                        <div class="sizes">
-                        
-                            <label class="re">37</label> 
-                            
-                            <label class="re">38</label> 
-                            
-                            <label class="re">39</label> 
-                            
-                            <label class="re">40</label> 
-                            
-                            <label class="re">41</label> 
-                            
-                            <label class="re">42</label> 
+.Container .card {
 
-                        </div>
+    align-items: center;
+    position: relative;
+    width: 320px;
+    height: 450px;
+    color: white;
+    background-color: #232323;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 20px 0px;
+}
 
-                    </div>
-                    <div class="buyBox">
-                        <a href="#">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </body>
-</html>
+.Container:not(:first-child) {
+    margin-left: 40px;
+}
+
+.Container .card::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    clip-path: circle(150px at 80% 20%);
+    transition: .5s;
+}
+
+.one .card::before {
+background-color: #9bdc28;
+}
+.two .card::before {
+background-color: #ff6e2e;
+}
+.three .card::before {
+background-color: #ff1708;
+}
+
+.card:hover::before {
+    clip-path: circle(300px at 80% -20%);
+}
+
+.Container .card::after {
+    content: "Nike";
+    position: absolute;
+    z-index: 0;
+    color: rgba(255,255,255,0.04);
+    font-size: 12em;
+    font-family: 'Lobster', cursive;
+    letter-spacing: 10px;
+    transition: .5s;
+    top: 30%;
+    left: -15%;
+}
+
+
+.imageBx {
+    position: relative;
+    width: 100%;
+    height: 225px;
+}
+
+img {
+    position: absolute;
+    z-index: 2;
+    width: 90%;
+    top: 10%;
+    transition: .5s;
+    transform:  rotate(-25deg) rotateY(180deg);
+}
+
+
+
+.card:hover .imgBx img {
+    top: -10%;
+    transform: rotate(-10deg) rotateY(180deg);
+  
+}
+
+
+.contentBx {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 70%;
+    z-index: 4;
+    transition: .5s;
+}
+
+.contentBx h3 {
+    font-size: 3.2em;
+}
+
+.card:hover .contentBx {
+    top: 45%;
+    
+}
+
+.contentBx h4 {
+    text-transform: uppercase;
+
+
+}
+
+label {
+    width: 25px;
+    height: 25px;
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+    display: inline-block;
+    transition: .5s;
+    margin: 5px;
+}
+
+.size {
+    margin-top: 200px;
+    transition: 1s;
+}
+
+.sizes {
+    width: 125px;
+    height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+
+
+
+
+.gr:hover {
+background-color: #9bdc28;
+transform: scale(1.1);
+}
+.or:hover {
+background-color: #ff6e2e;
+transform: scale(1.1);
+}
+.re:hover {
+background-color: #ff1708;
+transform: scale(1.1);
+}
+
+
+
+.buyBox {
+    width: 250px;
+    margin-top: 30px;
+    border: 2px solid white;
+    padding: 3px 8px;
+    border-radius: 30px;
+    background-color: white;
+    transition: 1s;
+
+}
+
+.buyBox a {
+    
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #232323;
+
+
+}
+
+.buyBox:hover {
+    border-radius: 50px;
+    transform: scale(1.1);
+}
+
+
+.card:hover .size {
+    margin-top: 0px;
+}
+
+
+
+
+
